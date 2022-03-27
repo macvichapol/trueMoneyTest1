@@ -1,6 +1,6 @@
 *** Keywords ***
-Open browser 
-        Open browser    http://the-internet.herokuapp.com/login     chrome
+Open browser to test
+    Open browser    http://the-internet.herokuapp.com/login     chrome
 
 Verify Login page
     [Arguments]    ${Title_login_page}
@@ -26,7 +26,7 @@ Input username and password and login
     ...            ${Password_input_data}
     Input Text    xpath=//*[@id="username"]    ${Username_input_data}
     Input Text    xpath=//*[@id="password"]    ${Password_input_data}
-    Click Button    xpath=//*[@id="login"]/button/i
+    Click Element    xpath=//*[@id="login"]/button/i
 
 Verify page after login success
     [Arguments]    ${Text_alert_login_success}
@@ -38,15 +38,15 @@ Verify page after login success
     ${Title}    Get text    //*[@id="content"]/div/h2
     ${Description}    Get text    //*[@id="content"]/div/h4
     ${Logout_button}    Get text    //*[@id="content"]/div/a
-    Should Be Equal As Strings    ${Text_alert}    ${Text_alert_login_success}
+    Should contain    ${Text_alert}    ${Text_alert_login_success}
     Should Be Equal As Strings    ${Title}    ${Title_login_success_page}
     Should Be Equal As Strings    ${Description}    ${Description_login_success_page}
     Should Be Equal As Strings    ${Logout_button}    ${Logout_button_text}
 
 Logout success
     [Arguments]    ${Text_alert_logout_success}
-    Click Button    xpath=//*[@id="content"]/div/a/i
+    Click Element    xpath=//*[@id="content"]/div/a/i
     ${Text_alert}    Get text    //*[@id="flash"]
-    Should Be Equal As Strings    ${Text_alert}    ${Text_alert_logout_success}
+    Should contain    ${Text_alert}    ${Text_alert_logout_success}
 
 

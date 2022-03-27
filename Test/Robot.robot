@@ -5,7 +5,7 @@ Library         Collections
 Resource        Keyword.robot
 Resource        Variable.robot
 Test Setup      Run Keywords
-...             Open browser    AND
+...             Open browser to test    AND
 ...             Verify Login page    ${TITLE_DATA}    ${DESCRIPTION_DATA}    ${USERNAME_DATA}    ${PASSWORD_DATA}    ${LOGIN_BUTTON_DATA}
 
 *** Test Cases ***
