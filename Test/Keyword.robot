@@ -49,4 +49,14 @@ Logout success
     ${Text_alert}    Get text    //*[@id="flash"]
     Should contain    ${Text_alert}    ${Text_alert_logout_success}
 
+Verify Login failed - Password incorrect
+    [Arguments]    ${Text_alert_password_incorrect}
+    ${Text_alert}    Get text    //*[@id="flash"]
+    Should contain    ${Text_alert}    ${Text_alert_password_incorrect}
+
+Verify Login failed - Username not found
+    [Arguments]    ${Text_alert_username_not_found}
+    ${Text_alert}    Get text    //*[@id="flash"]
+    Should contain    ${Text_alert}    ${Text_alert_username_not_found}
+
 
