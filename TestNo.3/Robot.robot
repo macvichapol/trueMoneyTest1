@@ -23,4 +23,4 @@ Test Login failed - Password incorrect
 Test Login failed - Username not found
     Input username and password and login    ${NOT_EXIST_USERNAME}    ${PASSWORD_INPUT_DATA}
     Verify Login failed - Username not found    ${TEXT_ALERT_USERNAME_NOT_FOUNDED}
-        Verify Login page    ${TITLE_DATA}    ${DESCRIPTION_DATA}    ${USERNAME_DATA}    ${PASSWORD_DATA}    ${LOGIN_BUTTON_DATA}
+    Verify Login page    ${TITLE_DATA}    ${DESCRIPTION_DATA}    ${USERNAME_DATA}    ${PASSWORD_DATA}    ${LOGIN_BUTTON_DATA}
