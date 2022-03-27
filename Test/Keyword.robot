@@ -20,3 +20,33 @@ Verify Login page
     Should Be Equal As Strings    ${Login_button}    ${Login_button_text}
     Element Should Be Visible    xpath=//*[@id="username"]
     Element Should Be Visible    xpath=//*[@id="password"]
+
+Input username and password and login
+    [Arguments]    ${Username_input_data}
+    ...            ${Password_input_data}
+    Input Text    xpath=//*[@id="username"]    ${Username_input_data}
+    Input Text    xpath=//*[@id="password"]    ${Password_input_data}
+    Click Button    xpath=//*[@id="login"]/button/i
+
+Verify page after login success
+    [Arguments]    ${Text_alert_login_success}
+    ...            ${Title_login_success_page}
+    ...            ${Description_login_success_page}
+    ...            ${Logout_button_text}
+    Element Should Be Visible    xpath=//*[@id="flash"]
+    ${Text_alert}    Get text    //*[@id="flash"]
+    ${Title}    Get text    //*[@id="content"]/div/h2
+    ${Description}    Get text    //*[@id="content"]/div/h4
+    ${Logout_button}    Get text    //*[@id="content"]/div/a
+    Should Be Equal As Strings    ${Text_alert}    ${Text_alert_login_success}
+    Should Be Equal As Strings    ${Title}    ${Title_login_success_page}
+    Should Be Equal As Strings    ${Description}    ${Description_login_success_page}
+    Should Be Equal As Strings    ${Logout_button}    ${Logout_button_text}
+
+Logout success
+    [Arguments]    ${Text_alert_logout_success}
+    Click Button    xpath=//*[@id="content"]/div/a/i
+    ${Text_alert}    Get text    //*[@id="flash"]
+    Should Be Equal As Strings    ${Text_alert}    ${Text_alert_logout_success}
+
+
