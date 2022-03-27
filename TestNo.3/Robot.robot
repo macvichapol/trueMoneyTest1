@@ -1,7 +1,6 @@
 *** Settings ***
 Library         SeleniumLibrary
 Library         BuiltIn
-Library         Collections
 Resource        Keyword.robot
 Resource        Variable.robot
 Test Setup      Run Keywords
